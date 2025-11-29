@@ -51,19 +51,25 @@ const Insights = () => {
       title: "Web App vs Mobile App: Choice for Startups, Mid-Size & Enterprises",
       category: "Web App vs Mobile App",
       date: "20-Nov-2025",
-      readTime: "5 min read"
+      readTime: "5 min read",
+      image: "https://arytech.com/_next/image/?url=https%3A%2F%2Fblogs.arytech.com%2Fwp-content%2Fuploads%2F2025%2F11%2FWeb-App-vs-Mobile-App-2025.jpg&w=1080&q=75",
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
       title: "What Is Custom Software Development and Why Your Business Needs It",
       category: "custom software development",
       date: "07-Nov-2025",
-      readTime: "7 min read"
+      readTime: "7 min read",
+      image: "https://arytech.com/_next/image/?url=https%3A%2F%2Fblogs.arytech.com%2Fwp-content%2Fuploads%2F2025%2F11%2Fflipsnack-hp4rpl_z6we-unsplash-scaled.jpg&w=1080&q=75",
+      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
     {
       title: "DevOps vs DataOps: Which Is Right for Your Organization?",
       category: "DevOps vs DataOps",
       date: "27-Oct-2025",
-      readTime: "6 min read"
+      readTime: "6 min read",
+      image: "https://arytech.com/_next/image/?url=https%3A%2F%2Fblogs.arytech.com%2Fwp-content%2Fuploads%2F2025%2F11%2FAI-Driven-MVP-Development-Services-scaled.jpg&w=1080&q=75",
+      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     }
   ];
 
@@ -216,39 +222,71 @@ const Insights = () => {
             Helpful Resources
           </Typography>
 
-          <Grid container spacing={3} className="resources-grid-modern">
-            {resources.map((resource, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <motion.div
-                  className="resource-card-modern"
-                  variants={itemVariants}
-                  whileHover={{ 
-                    y: -5,
-                    scale: 1.01,
-                    transition: { type: "spring", stiffness: 300 }
-                  }}
-                >
-                  <Typography 
-                    variant="h6" 
-                    className="resource-title"
-                    gutterBottom
+          <motion.div
+            className="resources-grid-modern"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Grid container spacing={3}>
+              {resources.map((resource, index) => (
+                <Grid item xs={12} md={4} key={index}>
+                  <motion.div
+                    className="resource-card-modern"
+                    variants={itemVariants}
+                    whileHover={{ 
+                      y: -8,
+                      scale: 1.02,
+                      transition: { type: "spring", stiffness: 300 }
+                    }}
                   >
-                    {resource.title}
-                  </Typography>
-                  
-                  <div className="resource-meta">
-                    <span className="resource-category">{resource.category}</span>
-                    <div className="resource-details">
-                      <span className="resource-date">{resource.date}</span>
-                      <span className="resource-read-time">{resource.readTime}</span>
+                    {/* Resource Image Section */}
+                    <div className="resource-image-container">
+                      <img
+                        src={resource.image}
+                        alt={resource.title}
+                        className="resource-image"
+                      />
+                      <div 
+                        className="resource-image-overlay"
+                        style={{ background: resource.gradient }}
+                      ></div>
+                      <div className="resource-category-badge">
+                        {resource.category}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="resource-hover-line"></div>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
+                    {/* Resource Content Section */}
+                    <div className="resource-content">
+                      <Typography 
+                        variant="h6" 
+                        className="resource-title"
+                        gutterBottom
+                      >
+                        {resource.title}
+                      </Typography>
+                      
+                      <div className="resource-meta">
+                        <div className="resource-details">
+                          <span className="resource-date">{resource.date}</span>
+                          <span className="resource-read-time">{resource.readTime}</span>
+                        </div>
+                      </div>
+
+                      <Button
+                        variant="outlined"
+                        className="resource-read-button"
+                        endIcon={<ArrowForward />}
+                      >
+                        Read More
+                      </Button>
+                    </div>
+                  </motion.div>
+                </Grid>
+              ))}
+            </Grid>
+          </motion.div>
         </motion.div>
 
         {/* Background Elements */}

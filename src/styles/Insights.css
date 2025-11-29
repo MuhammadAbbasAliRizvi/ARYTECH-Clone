@@ -162,25 +162,77 @@
 }
 
 .resources-grid-modern {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
+/* Resource Card Modern - Updated to match insights style */
 .resource-card-modern {
   background: white;
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
+  border-radius: 20px;
+  overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 86, 179, 0.1);
   transition: all 0.3s ease;
+  height: 100%;
   position: relative;
-  overflow: hidden;
 }
 
 .resource-card-modern:hover {
-  box-shadow: 0 15px 35px rgba(0, 86, 179, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
   border-color: rgba(0, 86, 179, 0.2);
+}
+
+/* Resource Image Container */
+.resource-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.resource-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.resource-card-modern:hover .resource-image {
+  transform: scale(1.1);
+}
+
+.resource-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.resource-card-modern:hover .resource-image-overlay {
+  opacity: 0.1;
+}
+
+.resource-category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0056b3;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 86, 179, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Resource Content Section */
+.resource-content {
+  padding: 1.5rem;
 }
 
 .resource-title {
@@ -188,27 +240,16 @@
   font-weight: 600 !important;
   color: #333 !important;
   line-height: 1.4 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1rem !important;
   font-family: 'Inter', 'Segoe UI', sans-serif !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .resource-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.resource-category {
-  background: rgba(0, 86, 179, 0.1);
-  color: #0056b3;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: inline-block;
-  width: fit-content;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
 }
 
 .resource-details {
@@ -220,29 +261,34 @@
 }
 
 .resource-date {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #666;
   font-weight: 500;
 }
 
 .resource-read-time {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #999;
   font-style: italic;
 }
 
-.resource-hover-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
-  transition: width 0.3s ease;
+.resource-read-button {
+  border-color: #0056b3 !important;
+  color: #0056b3 !important;
+  padding: 0.6rem 1.25rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Inter', 'Segoe UI', sans-serif !important;
+  border-width: 2px !important;
 }
 
-.resource-card-modern:hover .resource-hover-line {
-  width: 100%;
+.resource-read-button:hover {
+  background: #0056b3 !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3) !important;
 }
 
 /* Background Elements */
@@ -336,8 +382,12 @@
     font-size: 1.8rem !important;
   }
   
-  .resource-card-modern {
-    padding: 2rem 1.5rem;
+  .resource-image-container {
+    height: 180px;
+  }
+  
+  .resource-content {
+    padding: 1.25rem;
   }
   
   .resource-title {
@@ -374,8 +424,12 @@
     font-size: 1.5rem !important;
   }
   
-  .resource-card-modern {
-    padding: 1.5rem 1.25rem;
+  .resource-image-container {
+    height: 160px;
+  }
+  
+  .resource-content {
+    padding: 1rem;
   }
   
   .resource-title {
@@ -386,5 +440,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+  }
+  
+  .resource-read-button {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
   }
 }

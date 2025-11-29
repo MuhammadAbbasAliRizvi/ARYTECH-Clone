@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {  
   Box, 
   Container, 
   Button, 
@@ -27,31 +27,30 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsSticky(scrollTop > 100);
+      setIsSticky(scrollTop > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  
   const caseStudiesMenu = {
     title: "Case Studies",
     items: [
-      { name: "E-commerce Platform", icon: "🛒", description: "AI-powered shopping experience" },
-      { name: "Healthcare Solution", icon: "🏥", description: "Patient management system" },
-      { name: "FinTech Application", icon: "💳", description: "Digital banking platform" },
-      { name: "Education Portal", icon: "🎓", description: "Online learning management" }
+      { name: "AI Development Projects", description: "Cutting-edge artificial intelligence solutions" },
+      { name: "Product Engineering", description: "End-to-end product development" },
+      { name: "Software Development", description: "Custom software solutions" },
+      { name: "Cloud & DevOps", description: "Scalable cloud infrastructure" }
     ]
   };
 
   const insightsMenu = {
     title: "Insights",
     items: [
-      { name: "Blog Articles", icon: "📝", description: "Latest industry insights" },
-      { name: "White Papers", icon: "📄", description: "In-depth research papers" },
-      { name: "Case Studies", icon: "🔍", description: "Success stories" },
-      { name: "Webinars", icon: "🎥", description: "Expert discussions" }
+      { name: "Blog Articles", description: "Latest industry insights and trends" },
+      { name: "White Papers", description: "In-depth research and analysis" },
+      { name: "Case Studies", description: "Success stories and solutions" },
+      { name: "Webinars", description: "Expert discussions and workshops" }
     ]
   };
 
@@ -69,7 +68,6 @@ const Header = () => {
       <div className="dropdown-grid">
         {items.map((item, index) => (
           <a key={index} href="#" className="dropdown-item">
-            <span className="dropdown-icon">{item.icon}</span>
             <div className="dropdown-content">
               <span className="dropdown-title">{item.name}</span>
               <span className="dropdown-description">{item.description}</span>
@@ -88,9 +86,9 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Box className="nav-container">
-          {/* Logo */}
+          {/* Logo - Left Aligned */}
           <motion.div 
             className="logo-container"
             whileHover={{ scale: 1.05 }}
@@ -103,10 +101,16 @@ const Header = () => {
             />
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Center Aligned */}
           <nav className="nav-links-modern">
+            {/* Services Dropdown */}
             <MegaMenu />
             
+            {/* Industries Link - Without Dropdown */}
+            <a href="#" className="nav-link-modern industries-link">
+              Industries
+            </a>
+
             {/* Case Studies Dropdown */}
             <div 
               className="nav-item-with-dropdown"
@@ -114,7 +118,7 @@ const Header = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="nav-link-with-dropdown-modern">
-                Case Studies <ArrowForward className="dropdown-chevron" />
+                Case Studies
               </button>
               <AnimatePresence>
                 {activeDropdown === 'caseStudies' && (
@@ -123,10 +127,6 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <a href="#industries" className="nav-link-modern">
-              Industries
-            </a>
-
             {/* Insights Dropdown */}
             <div 
               className="nav-item-with-dropdown"
@@ -134,7 +134,7 @@ const Header = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="nav-link-with-dropdown-modern">
-                Insights <ArrowForward className="dropdown-chevron" />
+                Insights
               </button>
               <AnimatePresence>
                 {activeDropdown === 'insights' && (
@@ -144,7 +144,7 @@ const Header = () => {
             </div>
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button - Right Aligned */}
           <motion.div
             className="cta-container"
             whileHover={{ scale: 1.02 }}
@@ -182,18 +182,26 @@ const Header = () => {
               <div className="mobile-menu-content">
                 <div className="mobile-menu-section">
                   <h4>Services</h4>
-                  <a href="#">Web Development</a>
-                  <a href="#">Mobile Apps</a>
-                  <a href="#">AI Solutions</a>
-                  <a href="#">Cloud Services</a>
+                  <a href="#">AI Development</a>
+                  <a href="#">Product Engineering</a>
+                  <a href="#">Software Development</a>
+                  <a href="#">Cloud & DevOps</a>
+                </div>
+                
+                <div className="mobile-menu-section">
+                  <h4>Industries</h4>
+                  <a href="#">FinTech</a>
+                  <a href="#">HealthTech</a>
+                  <a href="#">EdTech</a>
+                  <a href="#">PropTech</a>
                 </div>
                 
                 <div className="mobile-menu-section">
                   <h4>Case Studies</h4>
-                  <a href="#">E-commerce Platform</a>
-                  <a href="#">Healthcare Solution</a>
-                  <a href="#">FinTech Application</a>
-                  <a href="#">Education Portal</a>
+                  <a href="#">AI Development Projects</a>
+                  <a href="#">Product Engineering</a>
+                  <a href="#">Software Development</a>
+                  <a href="#">Cloud & DevOps</a>
                 </div>
 
                 <div className="mobile-menu-section">
@@ -202,14 +210,6 @@ const Header = () => {
                   <a href="#">White Papers</a>
                   <a href="#">Case Studies</a>
                   <a href="#">Webinars</a>
-                </div>
-
-                <div className="mobile-menu-section">
-                  <h4>Industries</h4>
-                  <a href="#">Healthcare</a>
-                  <a href="#">Finance</a>
-                  <a href="#">Education</a>
-                  <a href="#">Retail</a>
                 </div>
 
                 <div className="mobile-cta-section">

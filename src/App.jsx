@@ -7,10 +7,11 @@ import Industries from './components/Industries'
 import CaseStudies from './components/CaseStudies'
 import Testimonials from './components/Testimonials'
 import Insights from './components/Insights'
-import FAQ from './components/FAQ'
-import Contact from './components/Contact'
+import FAQ from './components/Faqs'
+import Contact from './components/Contact'  
 import Footer from './components/Footer'
 import './styles/App.css'
+import Faqs from './components/Faqs'
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
       <CaseStudies />
       <Testimonials />
       <Insights />
-      <FAQ />
+      <Faqs />
       <Contact />
       <Footer />
     </div>
