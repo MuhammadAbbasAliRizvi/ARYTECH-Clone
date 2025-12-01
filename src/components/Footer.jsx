@@ -1,4 +1,5 @@
 import React from 'react'
+import './Footer.css'
 
 const Footer = () => {
   const industries = [
@@ -30,14 +31,52 @@ const Footer = () => {
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">
-              <div className="footer-logo">ARY TECH</div>
+              <div className="footer-logo">
+                <img 
+                  src="https://arytech.com/assets/images/logo2.svg" 
+                  alt="ARY TECH Logo" 
+                  className="footer-logo-img"
+                />
+              </div>
               <p className="footer-tagline">
                 Streaming Culture. Powering Platforms. Engineering the Future.
               </p>
               <div className="social-links">
-                <a href="#" aria-label="Facebook">facebook</a>
-                <a href="#" aria-label="Instagram">instagram</a>
-                <a href="#" aria-label="LinkedIn">linkedin</a>
+                <a href="#" aria-label="Facebook" className="social-icon">
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/124/124010.png" 
+                    alt="Facebook"
+                    className="social-icon-img"
+                  />
+                </a>
+                <a href="#" aria-label="Instagram" className="social-icon">
+                  <img 
+                    src="https://arytech.com/assets/images/icons/Instagram.svg" 
+                    alt="Instagram"
+                    className="social-icon-img"
+                  />
+                </a>
+                <a href="#" aria-label="LinkedIn" className="social-icon">
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+                    alt="LinkedIn"
+                    className="social-icon-img"
+                  />
+                </a>
+                <a href="#" aria-label="Twitter" className="social-icon">
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/124/124021.png" 
+                    alt="Twitter"
+                    className="social-icon-img"
+                  />
+                </a>
+                <a href="#" aria-label="YouTube" className="social-icon">
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/512/174/174883.png" 
+                    alt="YouTube"
+                    className="social-icon-img"
+                  />
+                </a>
               </div>
             </div>
             
@@ -71,7 +110,13 @@ const Footer = () => {
             <div className="footer-section">
               <h4>Locations</h4>
               <p>Under the umbrella of ARY group</p>
-              <div className="footer-logo-secondary">ARY Group Logo</div>
+              <div className="footer-group-logo">
+                <img 
+                  src="https://arytech.com/assets/images/ARY-Group-Logo2.svg" 
+                  alt="ARY Group"
+                  className="group-logo-img"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -85,6 +130,13 @@ const Footer = () => {
             </div>
             <div className="contact-info">
               info@arytech.com
+            </div>
+            <div className="footer-links">
+              <a href="#">Privacy Policy</a>
+              <span className="separator">|</span>
+              <a href="#">Terms of Service</a>
+              <span className="separator">|</span>
+              <a href="#">Cookie Policy</a>
             </div>
           </div>
         </div>
